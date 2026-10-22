@@ -1,7 +1,5 @@
 let humanScore = 0;
 let computerScore = 0;
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
 function getComputerChoice() {
   let randomIndex = Math.floor(Math.random() * 3);
@@ -27,28 +25,28 @@ function getHumanChoice() {
   return formatedHumanChoice;
 }
 
-function playRound(humanSelection, computerSelection) {
-  if (humanSelection === "Rock" && computerSelection === "Paper") {
+function playRound(getHumanChoice, getComputerChoice) {
+  if (getHumanChoice === "Rock" && getComputerChoice === "Paper") {
     computerScore++;
     console.log("Paper > Rock , o computador venceu!");
     return computerScore;
-  } else if (humanSelection === "Rock" && computerSelection === "Scissor") {
+  } else if (getHumanChoice === "Rock" && getComputerChoice === "Scissor") {
     humanScore++;
     console.log("Rock > Scissor , você venceu!");
     return humanScore;
-  } else if (humanSelection === "Paper" && computerSelection === "Rock") {
+  } else if (getHumanChoice === "Paper" && getComputerChoice === "Rock") {
     humanScore++;
     console.log("Paper > Rock , você venceu!");
     return humanScore;
-  } else if (humanSelection === "Paper" && computerSelection === "Scissor") {
+  } else if (getHumanChoice === "Paper" && getComputerChoice === "Scissor") {
     computerScore++;
     console.log("Scissor > Rock , o computador venceu!");
     return computerScore;
-  } else if (humanSelection === "Scissor" && computerSelection === "Rock") {
+  } else if (getHumanChoice === "Scissor" && getComputerChoice === "Rock") {
     computerScore++;
     console.log("Rock > Scissor , o computador venceu!");
     return computerScore;
-  } else if (humanSelection === "Scissor" && computerSelection === "Paper") {
+  } else if (getHumanChoice === "Scissor" && getComputerChoice === "Paper") {
     humanScore++;
     console.log("Scissor > Paper , você venceu!");
     return humanScore;
@@ -57,4 +55,23 @@ function playRound(humanSelection, computerSelection) {
   }
 }
 
-playRound(humanSelection, computerSelection);
+function playGame() {
+  for (let i = 0; i < 5; i++) {
+    playRound(getHumanChoice(), getComputerChoice());
+  }
+  console.log(
+    `Placar: Jogador (${humanScore}) vs Computador(${computerScore})`,
+  );
+  if (humanScore > computerScore) {
+    console.log("O Jogador venceu!");
+    return "O Jogador venceu!";
+  } else if (humanScore < computerScore) {
+    console.log("O Computador venceu!");
+    return "O Computador venceu!";
+  } else {
+    console.log("Empate!");
+    return "Draw";
+  }
+}
+
+playGame();
