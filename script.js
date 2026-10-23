@@ -59,13 +59,13 @@ function playGame() {
   for (let i = 0; i < 5; i++) {
     playRound(getHumanChoice(), getComputerChoice());
   }
-  console.log(`Placar: Player (${humanScore}) vs Computer(${computerScore})`);
+  console.log(`Score: Player (${humanScore}) vs Computer(${computerScore})`);
   if (humanScore > computerScore) {
     console.log("The player wins!");
     return "The player wins!";
   } else if (humanScore < computerScore) {
     console.log("The computer wins!");
-    return "O Computador venceu!";
+    return "The computer wins";
   } else {
     console.log("Draw!");
     return "Draw!";
