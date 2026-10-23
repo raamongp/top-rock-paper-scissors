@@ -17,7 +17,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-  let choicePrompt = prompt("Digite a sua escolha: ");
+  let choicePrompt = prompt("Type your choice: ");
   let formatedHumanChoice = choicePrompt
     .at(0)
     .concat("", choicePrompt.slice(1, choicePrompt.length).toLowerCase());
@@ -28,27 +28,27 @@ function getHumanChoice() {
 function playRound(getHumanChoice, getComputerChoice) {
   if (getHumanChoice === "Rock" && getComputerChoice === "Paper") {
     computerScore++;
-    console.log("Paper > Rock , o computador venceu!");
+    console.log("Paper > Rock , the computer won!");
     return computerScore;
   } else if (getHumanChoice === "Rock" && getComputerChoice === "Scissor") {
     humanScore++;
-    console.log("Rock > Scissor , você venceu!");
+    console.log("Rock > Scissor , you won!");
     return humanScore;
   } else if (getHumanChoice === "Paper" && getComputerChoice === "Rock") {
     humanScore++;
-    console.log("Paper > Rock , você venceu!");
+    console.log("Paper > Rock , you won!");
     return humanScore;
   } else if (getHumanChoice === "Paper" && getComputerChoice === "Scissor") {
     computerScore++;
-    console.log("Scissor > Rock , o computador venceu!");
+    console.log("Scissor > Rock ,  the computer won!");
     return computerScore;
   } else if (getHumanChoice === "Scissor" && getComputerChoice === "Rock") {
     computerScore++;
-    console.log("Rock > Scissor , o computador venceu!");
+    console.log("Rock > Scissor ,  the computer won!");
     return computerScore;
   } else if (getHumanChoice === "Scissor" && getComputerChoice === "Paper") {
     humanScore++;
-    console.log("Scissor > Paper , você venceu!");
+    console.log("Scissor > Paper , you won!");
     return humanScore;
   } else {
     return console.log("Draw!");
@@ -59,18 +59,16 @@ function playGame() {
   for (let i = 0; i < 5; i++) {
     playRound(getHumanChoice(), getComputerChoice());
   }
-  console.log(
-    `Placar: Jogador (${humanScore}) vs Computador(${computerScore})`,
-  );
+  console.log(`Placar: Player (${humanScore}) vs Computer(${computerScore})`);
   if (humanScore > computerScore) {
-    console.log("O Jogador venceu!");
-    return "O Jogador venceu!";
+    console.log("The player wins!");
+    return "The player wins!";
   } else if (humanScore < computerScore) {
-    console.log("O Computador venceu!");
+    console.log("The computer wins!");
     return "O Computador venceu!";
   } else {
-    console.log("Empate!");
-    return "Draw";
+    console.log("Draw!");
+    return "Draw!";
   }
 }
 
